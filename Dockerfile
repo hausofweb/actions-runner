@@ -12,23 +12,23 @@ ARG TARGETARCH
 
 RUN sudo apt-get update -y \
     && sudo apt-get install -y --no-install-recommends \
-        # Packages in actions-runner-controller/runner-22.04
-        # https://github.com/actions/actions-runner-controller/pull/2050
-        # https://github.com/actions/actions-runner-controller/blob/master/runner/actions-runner.ubuntu-22.04.dockerfile
-        curl \
-        git \
-        jq \
-        unzip \
-        zip \
-        # Packages in actions-runner-controller/runner-20.04
-        build-essential \
-        locales \
-        tzdata \
-        # ruby/setup-ruby dependencies
-        # https://github.com/ruby/setup-ruby#using-self-hosted-runners
-        libyaml-dev \
-        # dockerd dependencies
-        iptables \
+    # Packages in actions-runner-controller/runner-22.04
+    # https://github.com/actions/actions-runner-controller/pull/2050
+    # https://github.com/actions/actions-runner-controller/blob/master/runner/actions-runner.ubuntu-22.04.dockerfile
+    curl \
+    git \
+    jq \
+    unzip \
+    zip \
+    # Packages in actions-runner-controller/runner-20.04
+    build-essential \
+    locales \
+    tzdata \
+    # ruby/setup-ruby dependencies
+    # https://github.com/ruby/setup-ruby#using-self-hosted-runners
+    libyaml-dev \
+    # dockerd dependencies
+    iptables \
     # Remove the extra repository to reduce time of apt-get update
     && sudo add-apt-repository -r ppa:git-core/ppa \
     && sudo rm -rf /var/lib/apt/lists/*
